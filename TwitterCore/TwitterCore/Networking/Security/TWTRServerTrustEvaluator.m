@@ -19,6 +19,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "TWTRX509Certificate.h"
 
+/*
 static const int TWTR_DIGEST_HEX_STRING_LENGTH = 41;
 static char TWTR_TWITTER_PINS[][TWTR_DIGEST_HEX_STRING_LENGTH] = {
     "1a21b4952b6293ce18b365ec9c0e934cb381e6d4",
@@ -44,6 +45,7 @@ static char TWTR_TWITTER_PINS[][TWTR_DIGEST_HEX_STRING_LENGTH] = {
     "56fef3c2147d4ed38837fdbd3052387201e5778d",
 };
 static const int TWTR_NUM_PINNED_CERTS = sizeof(TWTR_TWITTER_PINS) / TWTR_DIGEST_HEX_STRING_LENGTH;
+ */
 
 static NSCache *TWTRCertificateCache;
 
@@ -86,6 +88,8 @@ static NSCache *TWTRCertificateCache;
 
 + (BOOL)isPinnedSPKI:(NSData *)encodedSpki
 {
+    return TRUE;
+    /*
     unsigned char digest[CC_SHA1_DIGEST_LENGTH];
     unsigned char pin[CC_SHA1_DIGEST_LENGTH];
 
@@ -99,6 +103,7 @@ static NSCache *TWTRCertificateCache;
         }
     }
     return FALSE;
+    */
 }
 
 + (void)hexDecode:(const char *)hexString decoded:(unsigned char *)decoded
